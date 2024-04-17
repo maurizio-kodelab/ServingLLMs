@@ -1,15 +1,11 @@
-# ServingLLMs
+# Installation
 
-How to serve LLMs efficiently on CPU or GPU using llamacpp and other efficiency techniques
-
-## Installation
-
-### LLamacpp
+## LLamacpp
 
 The main goal of llama.cpp is to enable LLM inference with minimal setup and state-of-the-art performance on a wide variety of hardware - locally and in the cloud.
 See [llamacpprepo](https://github.com/ggerganov/llama.cpp) for a list of supported platforms and models. We can install the python binding for llamacpp from the [repo](https://github.com/abetlen/llama-cpp-python), that will automatically install llamacpp too.
 
-#### Mac with M1
+### Mac with M1
 
 Detailed instructions for Mac M1 installation can be found [here](https://llama-cpp-python.readthedocs.io/en/latest/install/macos/).
 
@@ -45,9 +41,4 @@ Run the llama-cpp-python API server with MacOS Metal GPU support:
 # make sure it is q4_0
 export MODEL=[path to your llama.cpp ggml models]]/[ggml-model-name]]Q4_0.gguf
 python3 -m llama_cpp.server --model $MODEL  --n_gpu_layers 1
-```
-
-```
-./server -m ./models/quantized_q4_1.gguf -c 1024
-
 ```

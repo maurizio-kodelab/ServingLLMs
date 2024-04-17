@@ -1,0 +1,9 @@
+torch
+transformers
+pandas
+python-dotenv
+tqdm
+openai
+accelerate
+lorax-client
+matplotlib
