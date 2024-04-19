@@ -10,9 +10,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 
-def init_batch(requests):
+def init_batch(requests, device='cpu'):
     prompts = [r[0] for r in requests]
-    inputs = tokenizer(prompts, padding=True, return_tensors="pt")
+    inputs = tokenizer(prompts, padding=True, return_tensors="pt").to(device)
     
     attention_mask = inputs["attention_mask"]
     position_ids = attention_mask.long().cumsum(-1) - 1
