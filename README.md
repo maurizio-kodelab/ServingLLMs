@@ -1,8 +1,45 @@
 # ServingLLMs
 
-How to serve LLMs efficiently on CPU or GPU using llamacpp and other efficiency techniques
+How to serve LLMs efficiently on CPU or GPU using efficiency techniques and tools.
 
-## Installation
+## Configuration
+
+This notebook has been tested on an Ubuntu cloud instance with a RTX 3090 (24 GB VRAM) GPU.
+
+`nvidia-smi`
+
+```
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.29.06              Driver Version: 545.29.06    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA GeForce RTX 3090        Off | 00000000:06:00.0 Off |                  N/A |
+| 30%   37C    P8              20W / 300W |      6MiB / 24576MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
+```
+
+### Dataset
+
+The dataset used is **Call Transcripts Scam Determinations**, available on [Kaggle](https://www.kaggle.com/datasets/mealss/call-transcripts-scam-determinations).
+
+### Models
+
+We run inference with the models below, limiting mode output to sentiment only: "Neutral", "Positive", or "Negative". Each inference generates 4 tokens.
+
+mistralai/Mistral-7B-Instruct-v0.2 precision: torch.float16
+
+## Experiments
 
 ### LLamacpp
 
